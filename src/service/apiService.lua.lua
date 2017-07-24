@@ -9,9 +9,9 @@ local localStorage = require('src/utils/localStorage')
 local eventMediator = require 'src/utils/eventMediator'
 
 if DEV_MODE then
-    ApiService.API_URL_BASE = "https://gate.97kid.com/"
+    ApiService.API_URL_BASE = "https://127.0.0.1:3000/"
 else
-    ApiService.API_URL_BASE = appConfig.apiUrlBase
+    ApiService.API_URL_BASE = "https://127.0.0.1:3000/"
 end
 
 ApiService.EVENT_TOKEN_FAIL = 'ApiService.tokenFail'

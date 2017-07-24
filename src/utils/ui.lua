@@ -165,3 +165,10 @@ function ui.drag(target, boundSize, lockToCenter, callbacks)
     touchListener:setSwallowTouches(true)
     return callbacks
 end
+
+function ui.adjustLabelBottomWidth(labelField, bottom, offsetWidth)
+    local w = labelField:getContentSize().width + offsetWidth
+    local h = bottom:getContentSize().height
+    bottom:setContentSize(w, h)
+end
+

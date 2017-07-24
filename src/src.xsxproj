@@ -4,73 +4,81 @@
     <item/>
   </inspect-dirs>
   <assets>
-    <item path="cocos\cocosdenshion\AudioEngine.lua" dflag="131076"/>
     <item path="cocos\cocos2d\Cocos2d.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\DeprecatedOpenglEnum.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\DeprecatedCocos2dClass.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\Cocos2dConstants.lua" dflag="131076"/>
     <item path="cocos\cocos2d\DeprecatedCocos2dFunc.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\deprecated.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\DrawPrimitives.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\json.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\bitExtend.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\luaoc.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\Opengl.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\functions.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\DeprecatedCocos2dEnum.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\DeprecatedOpenglEnum.lua" dflag="131076"/>
     <item path="cocos\cocos2d\luaj.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\Opengl.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\luaoc.lua" dflag="131076"/>
     <item path="cocos\cocos2d\OpenglConstants.lua" dflag="131076"/>
     <item path="cocos\cocosbuilder\CCBReaderLoad.lua" dflag="131076"/>
-    <item path="cocos\cocosbuilder\DeprecatedCocosBuilderClass.lua" dflag="131076"/>
-    <item path="cocos\cocos2d\DeprecatedCocos2dEnum.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\Cocos2dConstants.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\deprecated.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\json.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\bitExtend.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\DeprecatedCocos2dClass.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\DrawPrimitives.lua" dflag="131076"/>
+    <item path="cocos\cocos2d\functions.lua" dflag="131076"/>
     <item path="cocos\3d\3dConstants.lua" dflag="131076"/>
-    <item path="cocos\framework\display.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\LayerEx.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UIEditBox.lua" dflag="131076"/>
-    <item path="cocos\extension\DeprecatedExtensionFunc.lua" dflag="131076"/>
-    <item path="cocos\cocosdenshion\DeprecatedCocosDenshionFunc.lua" dflag="131076"/>
     <item path="cocos\cocostudio\DeprecatedCocoStudioFunc.lua" dflag="131076"/>
-    <item path="cocos\cocostudio\DeprecatedCocoStudioClass.lua" dflag="131076"/>
-    <item path="cocos\cocosdenshion\DeprecatedCocosDenshionClass.lua" dflag="131076"/>
-    <item path="cocos\extension\DeprecatedExtensionClass.lua" dflag="131076"/>
     <item path="cocos\extension\ExtensionConstants.lua" dflag="131076"/>
-    <item path="cocos\cocostudio\CocoStudio.lua" dflag="131076"/>
+    <item path="cocos\cocosdenshion\AudioEngine.lua" dflag="131076"/>
+    <item path="cocos\cocosdenshion\DeprecatedCocosDenshionFunc.lua" dflag="131076"/>
     <item path="cocos\framework\audio.lua" dflag="131076"/>
-    <item path="cocos\cocostudio\StudioConstants.lua" dflag="131076"/>
-    <item path="cocos\framework\package_support.lua" dflag="131076"/>
-    <item path="cocos\controller\ControllerConstants.lua" dflag="131076"/>
+    <item path="cocos\framework\display.lua" dflag="131076"/>
     <item path="cocos\framework\device.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\SpriteEx.lua" dflag="131076"/>
+    <item path="cocos\extension\DeprecatedExtensionEnum.lua" dflag="131076"/>
+    <item path="cocos\framework\package_support.lua" dflag="131076"/>
+    <item path="cocos\cocostudio\DeprecatedCocoStudioClass.lua" dflag="131076"/>
+    <item path="cocos\cocostudio\CocoStudio.lua" dflag="131076"/>
+    <item path="cocos\cocosdenshion\DeprecatedCocosDenshionClass.lua" dflag="131076"/>
+    <item path="cocos\cocosbuilder\DeprecatedCocosBuilderClass.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\LayerEx.lua" dflag="131076"/>
     <item path="cocos\framework\extends\MenuEx.lua" dflag="131076"/>
     <item path="cocos\framework\extends\NodeEx.lua" dflag="131076"/>
-    <item path="cocos\extension\DeprecatedExtensionEnum.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UICheckBox.lua" dflag="131076"/>
+    <item path="cocos\cocostudio\StudioConstants.lua" dflag="131076"/>
+    <item path="cocos\extension\DeprecatedExtensionFunc.lua" dflag="131076"/>
     <item path="cocos\framework\components\event.lua" dflag="131076"/>
-    <item path="cocos\ui\DeprecatedUIFunc.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UIScrollView.lua" dflag="131076"/>
-    <item path="cocos\ui\experimentalUIConstants.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UIListView.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UIPageView.lua" dflag="131076"/>
+    <item path="cocos\controller\ControllerConstants.lua" dflag="131076"/>
+    <item path="cocos\extension\DeprecatedExtensionClass.lua" dflag="131076"/>
     <item path="cocos\ui\DeprecatedUIEnum.lua" dflag="131076"/>
-    <item path="cocos\network\DeprecatedNetworkFunc.lua" dflag="131076"/>
-    <item path="mobdebug.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UITextField.lua" dflag="131076"/>
-    <item path="cocos\framework\transition.lua" dflag="131076"/>
-    <item path="cocos\network\DeprecatedNetworkClass.lua" dflag="131076"/>
-    <item path="cocos\framework\extends\UIWidget.lua" dflag="131076"/>
-    <item path="cocos\framework\init.lua" dflag="131076"/>
-    <item path="cocos\network\NetworkConstants.lua" dflag="131076"/>
-    <item path="cocos\ui\GuiConstants.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\SpriteEx.lua" dflag="131076"/>
     <item path="hello2.lua" dflag="131076"/>
+    <item path="cocos\init.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UIListView.lua" dflag="131076"/>
+    <item path="cocos\framework\init.lua" dflag="131076"/>
+    <item path="cocos\network\DeprecatedNetworkClass.lua" dflag="131076"/>
+    <item path="cocos\physics3d\physics3d-constants.lua" dflag="131076"/>
+    <item path="cocos\ui\experimentalUIConstants.lua" dflag="131076"/>
+    <item path="cocos\framework\transition.lua" dflag="131076"/>
+    <item path="mobdebug.lua" dflag="131076"/>
+    <item path="service\apiService.lua.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UITextField.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UIEditBox.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UIWidget.lua" dflag="131076"/>
+    <item path="cocos\network\NetworkConstants.lua" dflag="131076"/>
+    <item path="cocos\network\DeprecatedNetworkFunc.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UIPageView.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UICheckBox.lua" dflag="131076"/>
+    <item path="cocos\framework\extends\UIScrollView.lua" dflag="131076"/>
+    <item path="cocos\spine\SpineConstants.lua" dflag="131076"/>
+    <item path="cocos\ui\DeprecatedUIFunc.lua" dflag="131076"/>
     <item path="main.lua" dflag="131076"/>
     <item path="cocos\framework\extends\UISlider.lua" dflag="131076"/>
-    <item path="cocos\init.lua" dflag="131076"/>
-    <item path="cocos\physics3d\physics3d-constants.lua" dflag="131076"/>
-    <item path="cocos\spine\SpineConstants.lua" dflag="131076"/>
+    <item path="cocos\ui\GuiConstants.lua" dflag="131076"/>
     <item path="cocos\network\DeprecatedNetworkEnum.lua" dflag="131076"/>
+    <item path="utils\promise.lua" dflag="131076"/>
+    <item path="component\scene\EntranceScene.lua" dflag="131076"/>
+    <item path="utils\effect.lua" dflag="131076"/>
+    <item path="utils\eventMediator.lua" dflag="131076"/>
     <item path="service\userService.lua" dflag="131076"/>
-    <item path="utils\uiUtils.lua" dflag="131076"/>
-    <item path="utils\effectUtils.lua" dflag="131076"/>
-    <item path="utils\apiService.lua.lua" dflag="131076"/>
+    <item path="utils\http.lua" dflag="131076"/>
+    <item path="utils\localStorage.lua" dflag="131076"/>
+    <item path="utils\ui.lua" dflag="131076"/>
+    <item path="lib\mediator.lua" dflag="131076"/>
+    <item path="component\scene\BaseScene.lua" dflag="131076"/>
+    <item path="lib\list.lua" dflag="131076"/>
   </assets>
   <ssheets/>
   <debug-options/>

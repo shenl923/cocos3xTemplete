@@ -1,6 +1,8 @@
 -- CC_USE_DEPRECATED_API = true
 require "cocos.init"
---local skynet = require "hello2"
+require "component.scene.EntranceScene"
+
+local skynet = require "hello2"
 local useService = require "service.userService"
 -- cclog
 cclog = function(...)
@@ -19,32 +21,34 @@ local function initGLView()
     local director = cc.Director:getInstance()
     local glView = director:getOpenGLView()
     if nil == glView then
-        glView = cc.GLViewImpl:create("Lua Empty Test")
+        glView = cc.GLViewImpl:create("SHENL")
         director:setOpenGLView(glView)
     end
     director:setOpenGLView(glView)
     glView:setDesignResolutionSize(960, 640, cc.ResolutionPolicy.NO_BORDER)
     --turn on display FPS
     director:setDisplayStats(true)
-
     --set FPS. the default value is 1.0/60 if you don't call this
     director:setAnimationInterval(1.0 / 60)
 end
+
+local function startGlobalTick()
+    --custom main lua
+    local director = cc.Director:getInstance()
+    local globalTick = require "src.utils.globalTick"
+    local tick = handler(globalTick, globalTick.tick)
+    director:getScheduler():scheduleScriptFunc(tick, 1 / 60.0, false)
+end 
 
 local function main()
     collectgarbage("setpause", 100)
     collectgarbage("setstepmul", 5000)
     
-    initGLView()  
+    initGLView()
+    startGlobalTick()
     
-    local sceneGame = cc.Scene:create()
+    local sceneGame = EntranceScene.create()
     cc.Director:getInstance():runWithScene(sceneGame)
-    
-    dump("Hello");
-    
-    local bg = cc.Sprite:create("farm.jpg")
-    bg:setPosition(200, 200)
-    sceneGame:addChild(bg)
 end
 xpcall(main, __G__TRACKBACK__)
 
