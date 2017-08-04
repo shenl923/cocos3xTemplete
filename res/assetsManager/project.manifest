@@ -1,0 +1,13 @@
+{
+	"packageUrl" : "http://localhost:8888",
+	"remoteManifestUrl" : "http://localhost:8888/project.manifest",
+	"remoteVersionUrl" : "http://localhost:8888/version.manifest",
+	"version" : "1.0.0",
+	"engineVersion" : "3.0 beta",
+	"assets" : {
+
+	},
+    "searchPaths" : [
+		
+    ]
+}

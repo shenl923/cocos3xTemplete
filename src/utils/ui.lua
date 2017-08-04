@@ -172,3 +172,6 @@ function ui.adjustLabelBottomWidth(labelField, bottom, offsetWidth)
     bottom:setContentSize(w, h)
 end
 
+function ui.getWinSize()
+    return cc.Director:getInstance():getWinSize()
+end

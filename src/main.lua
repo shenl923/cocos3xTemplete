@@ -1,9 +1,13 @@
 -- CC_USE_DEPRECATED_API = true
 require "cocos.init"
 require "component.scene.EntranceScene"
+require "utils.ui"
+
 
 local skynet = require "hello2"
 local useService = require "service.userService"
+
+
 -- cclog
 cclog = function(...)
     print(string.format(...))
@@ -22,6 +26,7 @@ local function initGLView()
     local glView = director:getOpenGLView()
     if nil == glView then
         glView = cc.GLViewImpl:create("SHENL")
+        glView:setFrameSize(960, 640)
         director:setOpenGLView(glView)
     end
     director:setOpenGLView(glView)

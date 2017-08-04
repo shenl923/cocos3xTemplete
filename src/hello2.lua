@@ -13,6 +13,6 @@ end, header)
 ]]
 
 --TEST SKYNET
-local skynetService = require('src/service/skynetService')
-skynetService:connect()
-skynetService:send('Login', json.encode({account='sl',password='123'}))
+--local skynetService = require('src/service/skynetService')
+--skynetService:connect()
+--skynetService:send('Login', json.encode({account='sl',password='123', roomId=1}))
