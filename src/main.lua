@@ -1,12 +1,12 @@
 -- CC_USE_DEPRECATED_API = true
 require "cocos.init"
 require "component.scene.EntranceScene"
+require "utils.utils"
 require "utils.ui"
 
 
 local skynet = require "hello2"
 local useService = require "service.userService"
-
 
 -- cclog
 cclog = function(...)

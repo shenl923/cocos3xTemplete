@@ -3,13 +3,17 @@ require "component.scene.BaseScene"
 
 EntranceScene = class("EntranceScene", BaseScene)
 
+EntranceScene.VAR_NEWROUND = 'GAME01.NEWROUND'
+
 function EntranceScene:ctor()
     EntranceScene.super.ctor(self)
 end
 
 
 function EntranceScene:onEnter(...)
-    self:checkResUpdate()
+    EntranceScene.super.onEnter(self)
+    --self:checkResUpdate()
+    self:createView()
 end
 
 function EntranceScene:onExit()
@@ -19,6 +23,22 @@ function EntranceScene:onExit()
     end
 end
 
+function EntranceScene:createView()
+    local image = ccui.ImageView:create("res/blocks.png")
+    image:move(200, 200)
+    image:addTo(self)
+
+    ui.setButton(image,function()
+       self:send(EntranceScene.VAR_NEWROUND, {result = true})
+    end)
+end
+
+function EntranceScene:onRoomVar(key, value)
+    local image = ccui.ImageView:create("res/blocks.png")
+    image:move(-500, -200)
+    image:addTo(self)
+    image:runAction(cc.MoveTo:create(0.5, cc.p(500,500)))
+end
 
 function EntranceScene:checkResUpdate()
     local function onUpdateEvent(event)

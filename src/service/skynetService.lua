@@ -1,10 +1,16 @@
 
-local socket = require 'socket'
-local globalTick = require 'src.utils.globalTick'
 
 SkynetService = class("SkynetService")
 
+SkynetService.ServiceUpdateVar = 'UpdateRoomVar'
+SkynetService.ServiceEnterRoom = 'EnterRoom'
 
+
+local socket = require 'socket'
+local globalTick = require 'src.utils.globalTick'
+local eventMediator = require 'src/utils/eventMediator'
+
+SkynetService.EVENT_SKYNET_RECVICE = 'evt.skynet.recvice'
 
 local function packShort(a)
     local a1 = bit.band(0xff, a)
@@ -44,6 +50,7 @@ end
 
 function SkynetService:ctor()
     self.tickerId = globalTick:register(handler(self, SkynetService.tick))
+    self.cache = {}
 end 
 
 function SkynetService:dtor()
@@ -86,7 +93,12 @@ function SkynetService:tick()
     local isCompress = string.byte(msg:sub(keySize + 5, keySize + 5))
     local msgSize = unpackInt(msg:sub(keySize + 6, keySize + 9))
     local value = msg:sub(keySize + 10, msgSize + keySize + 10)
-    dump(value, key)
+    --self.cache[key] = value
+    if key == SkynetService.ServiceUpdateVar  then 
+        value = json.decode(value)
+        dump(value)
+        eventMediator:publish(SkynetService.EVENT_SKYNET_RECVICE, value.k, value.v)
+    end
 end
 
 
@@ -119,6 +131,10 @@ function SkynetService:send(key, value)
     if not ret then
         print(error)
     end
+end 
+
+function SkynetService:enterRoom(roomId)
+   self:send(SkynetService.ServiceEnterRoom,  json.encode({account='sl',password='123', roomId=roomId or 1}))
 end 
 
 local skynetService = SkynetService.new()

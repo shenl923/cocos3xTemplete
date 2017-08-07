@@ -1,7 +1,7 @@
 {
-	"packageUrl" : "http://localhost:8888",
-	"remoteManifestUrl" : "http://localhost:8888/project.manifest",
-	"remoteVersionUrl" : "http://localhost:8888/version.manifest",
+	"packageUrl" : "http://119.29.236.179:8888",
+	"remoteManifestUrl" : "http://119.29.236.179:8888/project.manifest",
+	"remoteVersionUrl" : "http://119.29.236.179:8888/version.manifest",
 	"version" : "1.0.0",
 	"engineVersion" : "3.0 beta",
 	"assets" : {
