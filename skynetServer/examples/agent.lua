@@ -58,9 +58,11 @@ skynet.register_protocol {
 		return name,msg
 	end,
 	dispatch = function (_, _, name, msg)
-        if name == 'Login' then 
-            local room = skynet.uniqueservice("room")
+		local room = skynet.uniqueservice("room")
+        if name == 'EnterRoom' then 
 	        skynet.call(room,"lua","enter", skynet.self(), client_fd)
+		elseif name == 'UpdateRoomVar' then 
+			skynet.call(room,"lua","UpdateRoomVar", skynet.self(), msg)
         end 
 	end
 }
@@ -71,7 +73,7 @@ function CMD.start(conf)
 	WATCHDOG = conf.watchdog
 	skynet.fork(function()
 		while true do
-            send_package('heartbeat', 'empty')
+            send_package('heartbeat', 'heartbeat')
 			skynet.sleep(5000)
 		end
 	end)

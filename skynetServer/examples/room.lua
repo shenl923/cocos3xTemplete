@@ -1,8 +1,10 @@
+require 'utils'
 local skynet = require "skynet"
 local size
 local player = {}
-
+local json = require "json"
 local CMD = {}
+local cache = {}
 
 function CMD.enter(agent, client_fd)
     print('agent, client_fd', agent, client_fd)
@@ -16,9 +18,19 @@ function CMD.enter(agent, client_fd)
     table.insert(player, agent)
 
 	for k, agent in pairs(player) do
-		skynet.call(agent, "lua","send","login", {client=client_fd})
+		skynet.call(agent, "lua","send","EnterRoom", {result=true, client=client_fd})
 	end	
 end
+
+function CMD.UpdateRoomVar(agent, var)
+	local tb = json.decode(var)
+	local key = tb.k
+	local value = tb.v
+	local sendValue = {k=key, v=value}
+	for k, agent in pairs(player) do
+		skynet.call(agent, "lua","send","UpdateRoomVar", sendValue)
+	end	
+end 
 
 function CMD.exit(agent)
     for k, _agent in pairs (player) do 
