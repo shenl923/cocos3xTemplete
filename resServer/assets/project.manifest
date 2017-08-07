@@ -1,0 +1,26 @@
+{
+	"packageUrl" : "http://localhost:8888/",
+	"remoteManifestUrl" : "http://localhost:8888/project.manifest",
+	"remoteVersionUrl" : "http://localhost:8888/version.manifest",
+    "version": "1.2.2",
+    "engineVersion": "3.x dev",
+    "assets": {
+        "Images/assetMgrBackground1.jpg": {
+            "md5": "....."
+        },
+		"Images/background.png": {
+            "md5": "....."
+        },
+		"Images/hole_effect.png": {
+            "md5": "....."
+        },
+        "Images/ball.png": {
+            "md5": "..."
+        },
+		"lesson1.zip": {
+			"md5" : "...",
+			"compressed" : true
+		}
+    },
+    "searchPaths": []
+}
