@@ -1,6 +1,7 @@
 -- CC_USE_DEPRECATED_API = true
 require "cocos.init"
-require "component.scene.EntranceScene"
+--require "component.scene.EntranceScene"
+require "games.niuniu.niuniuScene"
 require "utils.utils"
 require "utils.ui"
 
@@ -52,7 +53,7 @@ local function main()
     initGLView()
     startGlobalTick()
     
-    local sceneGame = EntranceScene.create()
+    local sceneGame = NiuniuScene.create()
     cc.Director:getInstance():runWithScene(sceneGame)
 end
 xpcall(main, __G__TRACKBACK__)

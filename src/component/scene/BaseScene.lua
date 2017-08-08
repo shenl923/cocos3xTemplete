@@ -10,7 +10,10 @@ function BaseScene:ctor()
 end
 
 function BaseScene:onEnter()
-    skynetService:connect()
+    local ip = "119.29.236.179"
+    --local ip = "127.0.0.179"
+    local port = "8888"
+    skynetService:connect(ip, port)
     skynetService:enterRoom(1)
 
     eventMediator:listen(SkynetService.EVENT_SKYNET_RECVICE, function(key, value)
@@ -32,5 +35,15 @@ end
 function BaseScene:onRoomVar(key, value)
   
 end
+
+function BaseScene:setBackgound(res)
+    local bg = ccui.ImageView:create(res)
+    local size = ui.getWinSize()
+    bg:ignoreContentAdaptWithSize(false)
+    bg:setContentSize(size.width, size.height)
+    bg:move(size.width/2, size.height/2)
+    bg:addTo(self,-10)
+end
+
         
         

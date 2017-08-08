@@ -60,16 +60,15 @@ end
 
 function SkynetService:connect(ip, port)
     local tcp = socket.tcp()
-    tcp:settimeout(0)
     local ip = ip or "127.0.0.1"
     local port = port or 8889
 
     local fd , _ext = tcp:connect(ip, port)
-
-    if not fd and _ext ~= "timeout" then
-        prinr(_ext)
+    tcp:settimeout(0)
+    if not fd then
+        print(_ext)
     else
-        self.conn = tcp
+        self.conn = tcp        
     end
 end
 
@@ -106,7 +105,7 @@ function SkynetService:_recv(size)
     local ret, error = self.conn:receive(size)
     if not ret then
         if error ~= 'timeout' then
-            print(error)
+           print(error)
         end
     else
         return ret

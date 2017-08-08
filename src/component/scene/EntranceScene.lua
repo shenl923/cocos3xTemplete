@@ -1,5 +1,6 @@
 require "component.scene.BaseScene"
 -- "component.scene.EntranceScene"
+require "component.BaseCard"
 
 EntranceScene = class("EntranceScene", BaseScene)
 
@@ -12,8 +13,7 @@ end
 
 function EntranceScene:onEnter(...)
     EntranceScene.super.onEnter(self)
-    --self:checkResUpdate()
-    self:createView()
+    self:checkResUpdate()
 end
 
 function EntranceScene:onExit()
@@ -21,23 +21,6 @@ function EntranceScene:onExit()
     if self.am then 
         self.am:release()
     end
-end
-
-function EntranceScene:createView()
-    local image = ccui.ImageView:create("res/blocks.png")
-    image:move(200, 200)
-    image:addTo(self)
-
-    ui.setButton(image,function()
-       self:send(EntranceScene.VAR_NEWROUND, {result = true})
-    end)
-end
-
-function EntranceScene:onRoomVar(key, value)
-    local image = ccui.ImageView:create("res/blocks.png")
-    image:move(-500, -200)
-    image:addTo(self)
-    image:runAction(cc.MoveTo:create(0.5, cc.p(500,500)))
 end
 
 function EntranceScene:checkResUpdate()

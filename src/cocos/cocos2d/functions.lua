@@ -106,6 +106,37 @@ function dump(value, description, nesting)
     end
 end
 
+function dumpKey(obj, sFind)
+	if not tolua.isnull(obj) then
+		obj = tolua.getpeer(obj) or {}
+	end
+
+	if type(obj) ~= 'table' then
+		print('obj is not a table')
+		return
+	end
+
+	if obj[".isclass"] then
+		obj = getmetatable(obj)
+	end
+
+	local fnPick = function() return true end
+	if sFind then
+		sFind = sFind:upper()
+		fnPick = function(s)
+			return s:upper():find(sFind)
+		end
+	end
+
+	local arr = {}
+	for k, _v in pairs(obj) do
+		if fnPick(k) then
+            table.insert(arr, k)
+		end
+	end
+	dump(arr)
+end
+
 function printf(fmt, ...)
     print(string.format(tostring(fmt), ...))
 end
