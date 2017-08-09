@@ -1,7 +1,17 @@
 local UserService = class('UserService')
+local eventMediator = require 'src/utils/eventMediator'
 
-function UserService:ctor(userInfo)
-    self.userInfo = userInfo
+function UserService:ctor()
+    self.userInfo = nil
+end
+
+
+function UserService:initInfo(value)
+    if self.userInfo == nil then 
+        self.userInfo = {}
+        self.userInfo.id = value.client
+        self.userInfo.index = value.index
+    end
 end
 
 function UserService:getUserInfo()

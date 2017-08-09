@@ -175,3 +175,36 @@ end
 function ui.getWinSize()
     return cc.Director:getInstance():getWinSize()
 end
+
+
+--鼠标划过与划出
+function ui.onMouseOver(node, callback)
+    local listener = cc.EventListenerMouse:create()
+    local isHit = false
+    listener:registerScriptHandler(function(event)
+        local scene = display.getRunningScene()
+        local camera = scene:getDefaultCamera()
+
+        local _isHit = node:hitTest(event:getLocationInView(), camera)
+        if isHit ~= _isHit then
+            isHit = _isHit
+            doCallback(callback, isHit)
+        end
+    end, cc.Handler.EVENT_MOUSE_MOVE)
+    node:getEventDispatcher():addEventListenerWithSceneGraphPriority(listener, node)
+end
+
+function ui.onMouseClick(node, callback)
+    local pDown
+    ccs.addMouseEvent(node, function(event)
+        pDown = event:getLocationInView()
+    end, nil, function(event)
+        local scene = display.getRunningScene()
+        local camera = scene:getDefaultCamera()
+        local pUp = event:getLocationInView()
+        local isHit = node:hitTest(pUp, camera)
+        if isHit and pDown.x == pUp.x and pDown.y == pUp.y then
+            doCallback(callback, node)
+        end
+    end)
+end

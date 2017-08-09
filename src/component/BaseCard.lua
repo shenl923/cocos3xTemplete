@@ -2,14 +2,6 @@ BaseCard = class("BaseCard", function(...)
     return display.newNode()
 end)
 
- BaseCard.Color = {
-    DIAMONDS = 1,   --方片
-    CLUBS = 2,      --草花
-    SPADES = 3,     --黑桃
-    HEARTS = 4,     --红桃
- }
-
-
 function BaseCard:ctor(color, value)
     self:enableNodeEvents()
     self.color = color

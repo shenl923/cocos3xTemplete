@@ -11,13 +11,16 @@ end
 
 function BaseScene:onEnter()
     local ip = "119.29.236.179"
-    --local ip = "127.0.0.179"
     local port = "8888"
     skynetService:connect(ip, port)
     skynetService:enterRoom(1)
 
-    eventMediator:listen(SkynetService.EVENT_SKYNET_RECVICE, function(key, value)
-        self:onRoomVar(key, value)
+    eventMediator:listen(SkynetService.EVENT_SKYNET_RECVICE, function(key, value, id)
+        if id then 
+            self:onUserVar(id, key, value)
+        else 
+            self:onRoomVar(key, value)
+        end
     end)
 
 end
@@ -26,14 +29,24 @@ function BaseScene:onExit()
 
 end
 
-function BaseScene:send(key, value)
+function BaseScene:sendRoomVar(key, value)
     local tb = {}
     tb = {k = key, v = value}
     skynetService:send(SkynetService.ServiceUpdateVar, json.encode(tb))
 end
 
+function BaseScene:sendUserVar(id, key, value)
+    local tb = {}
+    tb = {id = id, k = key, v = value}
+    skynetService:send(SkynetService.ServiceUpdateVar, json.encode(tb))
+end
+
 function BaseScene:onRoomVar(key, value)
   
+end
+
+function BaseScene:onUserVar(id, key, value)
+      dump(value,key..id)
 end
 
 function BaseScene:setBackgound(res)

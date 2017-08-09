@@ -4,9 +4,7 @@ require "cocos.init"
 require "games.niuniu.niuniuScene"
 require "utils.utils"
 require "utils.ui"
-
-
-local skynet = require "hello2"
+require "lib.list"
 local useService = require "service.userService"
 
 -- cclog

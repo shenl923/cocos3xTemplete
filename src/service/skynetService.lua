@@ -9,8 +9,10 @@ SkynetService.ServiceEnterRoom = 'EnterRoom'
 local socket = require 'socket'
 local globalTick = require 'src.utils.globalTick'
 local eventMediator = require 'src/utils/eventMediator'
+local useService = require "service.userService"
 
 SkynetService.EVENT_SKYNET_RECVICE = 'evt.skynet.recvice'
+SkynetService.EVENT_SKYNET_ENTER_ROOM = 'evt.skynet.enter.room'
 
 local function packShort(a)
     local a1 = bit.band(0xff, a)
@@ -62,7 +64,6 @@ function SkynetService:connect(ip, port)
     local tcp = socket.tcp()
     local ip = ip or "127.0.0.1"
     local port = port or 8889
-
     local fd , _ext = tcp:connect(ip, port)
     tcp:settimeout(0)
     if not fd then
@@ -93,13 +94,19 @@ function SkynetService:tick()
     local msgSize = unpackInt(msg:sub(keySize + 6, keySize + 9))
     local value = msg:sub(keySize + 10, msgSize + keySize + 10)
     --self.cache[key] = value
-    if key == SkynetService.ServiceUpdateVar  then 
-        value = json.decode(value)
-        dump(value)
-        eventMediator:publish(SkynetService.EVENT_SKYNET_RECVICE, value.k, value.v)
-    end
+    self:handleSkynetEvent(key, value)
 end
 
+function SkynetService:handleSkynetEvent(key, value)
+    value = json.decode(value)
+    if key == SkynetService.ServiceUpdateVar  then 
+        assert(value.k ~= nil, 'skynet room Var == nil : true')
+        eventMediator:publish(SkynetService.EVENT_SKYNET_RECVICE, value.k, value.v, value.id)
+    elseif key == SkynetService.ServiceEnterRoom then 
+        useService:initInfo(value)
+        eventMediator:publish(SkynetService.EVENT_SKYNET_ENTER_ROOM, value)
+    end
+end
 
 function SkynetService:_recv(size)
     local ret, error = self.conn:receive(size)
@@ -111,7 +118,6 @@ function SkynetService:_recv(size)
         return ret
     end
 end 
-
 
 function SkynetService:pack(key, value)
     local sn = packInt(#key)
